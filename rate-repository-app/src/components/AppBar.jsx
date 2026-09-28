@@ -1,9 +1,6 @@
-import { View, StyleSheet, Text } from 'react-native'
-import { Pressable } from 'react-native'
+import { View, StyleSheet, Text, Pressable, ScrollView } from 'react-native'
 import Constants from 'expo-constants'
 import theme from './theme'
-import SignIn from './SignIn'
-import { ScrollView } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
