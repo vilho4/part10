@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
-import theme from './theme'
+import { View, StyleSheet, Image } from 'react-native'
+import Text from './Text'
+import theme from '../theme'
 
 const styles = StyleSheet.create({
   container: {
@@ -59,7 +60,6 @@ const formatCount = (count) => {
 }
 
 const RepositoryItem = ({ item }) => {
-  // console.log('repositoryItem', item)
   return (
     <View style={styles.container}>
       <View style={styles.topRow}>
