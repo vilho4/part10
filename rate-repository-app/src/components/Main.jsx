@@ -11,8 +11,7 @@ const Main = () => {
       <AppBar />
       <Routes>
         <Route path="/" element={<RepositoryList />} />
-        <Route path="sign-in" element={<SignIn />} />
-
+        <Route path="/sign-in" element={<SignIn />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </View>

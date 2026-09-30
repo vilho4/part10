@@ -1,6 +1,7 @@
 import { View, StyleSheet, Text, Pressable, ScrollView } from 'react-native'
 import Constants from 'expo-constants'
 import theme from '../theme'
+import { Link } from 'react-router-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -20,19 +21,16 @@ const styles = StyleSheet.create({
 })
 
 const AppBar = () => {
-  console.log('appbar rendered')
-
-  console.log('appbar rendered twice')
   return (
     <View style={styles.container}>
       <ScrollView horizontal contentContainerStyle={{ flexDirection: 'row' }}>
-        <Pressable>
+        <Link to="/">
           <Text style={styles.text}>Repositories</Text>
-        </Pressable>
+        </Link>
 
-        <Pressable>
+        <Link to="/sign-in">
           <Text style={styles.text}>Sign In</Text>
-        </Pressable>
+        </Link>
       </ScrollView>
     </View>
   )
