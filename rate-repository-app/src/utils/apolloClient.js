@@ -1,7 +1,10 @@
 import { Platform } from 'react-native'
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client'
 
-const uri = Platform.OS === 'android' ? 'http://10.0.2.2:4000' : 'http://localhost:4000'
+const uri =
+  Platform.OS === 'android'
+    ? process.env.EXPO_PUBLIC_APOLLO_URI_ANDROID
+    : process.env.EXPO_PUBLIC_APOLLO_URI_WEB
 
 const httpLink = new HttpLink({
   uri,
