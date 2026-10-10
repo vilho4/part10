@@ -15,12 +15,11 @@ const ItemSeparator = () => <View style={styles.separator} />
 const RepositoryView = () => {
   const { id } = useParams()
 
-  const { repository, loading, error } = useRepository(id)
+  const { repository, loading, error, fetchMore } = useRepository(id)
 
-  if (loading) {
+  if (loading && !repository) {
     return <Text>Loading...</Text>
   }
-
   if (error) {
     return <Text>Failed to load repository</Text>
   }
@@ -37,6 +36,8 @@ const RepositoryView = () => {
       renderItem={({ item }) => <ReviewItem review={item} />}
       keyExtractor={(item) => item.id}
       ItemSeparatorComponent={ItemSeparator}
+      onEndReached={fetchMore}
+      onEndReachedThreshold={0.5}
       ListHeaderComponent={
         <View>
           <RepositoryItem item={repository} showGitHubButton />

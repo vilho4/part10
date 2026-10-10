@@ -1,6 +1,7 @@
 import { Platform } from 'react-native'
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client'
 import { SetContextLink } from '@apollo/client/link/context'
+import { relayStylePagination } from '@apollo/client/utilities'
 
 const uri =
   Platform.OS === 'android'
@@ -33,7 +34,15 @@ const createApolloClient = (authStorage) => {
 
   return new ApolloClient({
     link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        Repository: {
+          fields: {
+            reviews: relayStylePagination(),
+          },
+        },
+      },
+    }),
   })
 }
 
