@@ -1,10 +1,9 @@
 import { View, StyleSheet, Text, ScrollView, Pressable } from 'react-native'
 import Constants from 'expo-constants'
 import theme from '../theme'
-import { Link } from 'react-router-native'
+import { Link , useNavigate } from 'react-router-native'
 import { useQuery } from '@apollo/client/react'
 import { ME } from '../graphql/queries'
-import { useNavigate } from 'react-router-native'
 import useSignOut from '../hooks/useSignOut'
 
 const styles = StyleSheet.create({

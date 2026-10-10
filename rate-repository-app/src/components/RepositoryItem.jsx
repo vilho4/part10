@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 
 const formatCount = (count) => {
   if (count >= 1000) {
-    return (count / 1000).toFixed(1) + 'k' // merkkijonoksi
+    return (count / 1000).toFixed(1) + 'k'
   }
   return count
 }
@@ -105,12 +105,13 @@ const RepositoryItem = ({ item, showGitHubButton = false }) => {
           <Text>{item.ratingAverage}</Text>
           <Text>Rating</Text>
         </View>
-        {showGitHubButton && (
-          <Pressable style={styles.githubButton} onPress={() => Linking.openURL(item.url)}>
-            <Text style={styles.githubButtonText}>Open in GitHub</Text>
-          </Pressable>
-        )}
       </View>
+
+      {showGitHubButton && (
+        <Pressable style={styles.githubButton} onPress={() => Linking.openURL(item.url)}>
+          <Text style={styles.githubButtonText}>Open in GitHub</Text>
+        </Pressable>
+      )}
     </View>
   )
 }
