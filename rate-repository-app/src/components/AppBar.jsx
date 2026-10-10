@@ -1,7 +1,7 @@
 import { View, StyleSheet, Text, ScrollView, Pressable } from 'react-native'
 import Constants from 'expo-constants'
 import theme from '../theme'
-import { Link , useNavigate } from 'react-router-native'
+import { Link, useNavigate } from 'react-router-native'
 import { useQuery } from '@apollo/client/react'
 import { ME } from '../graphql/queries'
 import useSignOut from '../hooks/useSignOut'
@@ -42,16 +42,26 @@ const AppBar = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView horizontal contentContainerStyle={{ flexDirection: 'row' }}>
+      <ScrollView
+        horizontal
+        style={styles.ScrollView}
+        contentContainerStyle={{ flexDirection: 'row' }}
+      >
         <Link to="/">
           <Text style={styles.text}>Repositories</Text>
         </Link>
 
         {!loading &&
           (isSignedIn ? (
-            <Pressable onPress={handleSignOut}>
-              <Text style={styles.text}>Sign Out</Text>
-            </Pressable>
+            <>
+              <Link to="/create-review">
+                <Text style={styles.text}>Create a review</Text>
+              </Link>
+
+              <Pressable onPress={handleSignOut}>
+                <Text style={styles.text}>Sign Out</Text>
+              </Pressable>
+            </>
           ) : (
             <Link to="/sign-in">
               <Text style={styles.text}>Sign In</Text>
@@ -61,5 +71,4 @@ const AppBar = () => {
     </View>
   )
 }
-
 export default AppBar
