@@ -1,5 +1,6 @@
 import { View } from 'react-native'
 import { Route, Routes, Navigate } from 'react-router-native'
+import MyReviews from './MyReviews'
 
 import RepositoryList from './RepositoryList'
 import RepositoryView from './RepositoryView'
@@ -19,6 +20,7 @@ const Main = () => {
         <Route path="*" element={<Navigate replace to="/" />} />
         <Route path="/create-review" element={<CreateReview />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/my-reviews" element={<MyReviews />} />
       </Routes>
     </View>
   )
